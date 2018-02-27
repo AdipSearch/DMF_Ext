@@ -1,0 +1,41 @@
+body{
+	background-color: #FCFAF1;
+	color: #313D5A;
+}
+header{
+	display: flex;
+}
+.logo_entete{
+	display: flex;
+	align-items: center;
+}
+.logo{
+	width: 5rem;
+}
+
+h1{
+	text-align: center;
+}
+
+.text_entete h1{
+	padding: 2rem;
+}
+
+.img_product{
+	width: 20rem;
+	margin-bottom: 3rem;
+}
+
+.lienssitesmarques{
+	border: 0.5px solid #313D5A;
+	border-radius: 3px;
+	color: #313D5A;
+	text-decoration: none;
+	padding: 1rem;
+}
+
+a:hover{
+	
+	background-color: rgba(49, 61, 90,0.1);
+}
+
