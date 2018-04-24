@@ -1,8 +1,8 @@
 
 
-var keywords = new Array('stan-smith','vans-authentic','converse-chuck');
+var keywords = new Array(phpVars[0],phpVars[1],phpVars[2]);
 
-var trouve = 'texte';
+
 
 
 //Lance la fonction showNotification dès qu'une page est rafraîchie.
@@ -26,7 +26,7 @@ function showNotification()//gestion de la boite de dialogue
 			var recherche = url.indexOf(keywords[i]);
 			
 			if (recherche>-1) {
-				//trouve = tables[i][0];
+				
 				modelesAAfficher.push(i);
 				var myKeyword = keywords[i];
 
@@ -39,7 +39,7 @@ function showNotification()//gestion de la boite de dialogue
 			//Ouvre notification si on trouve un modèle de notre base de donnée dans l'url
 			chrome.notifications.create('reminder', {
 				type: 'basic',
-				iconUrl: 'icon.png',
+				iconUrl:'icon.png',
 				title: 'Des marques plus éthiques',
 				message: 'DressMeFair peut vous proposer des modèles plus éthiques.'
 			});

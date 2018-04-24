@@ -1,6 +1,7 @@
 body{
 	background-color: #FCFAF1;
-	color: #313D5A;
+	color: #FFFFFF;
+	font-family: 'Khand';
 }
 header{
 	display: flex;
