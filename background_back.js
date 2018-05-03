@@ -1,13 +1,22 @@
-// Reçoit l liste de smots clés depuis fichier getKeywordsList.php
+
 function getKeywordsList(){
+	// xhttp = new XMLHttpRequest();
+ //  xhttp.onreadystatechange = function() {
+ //    if (this.readyState == 4 && this.status == 200) {
+ //    var keywordsList = this.responseText;
+ //    }
+ //  };
+ //  xhttp.open("GET","getKeywordsList.php", true);
+ //  xhttp.send();
+ console.log('gogogo');
  const req = new XMLHttpRequest();
-req.open('GET', 'http://localhost/Comparateur_ethique/getKeywordsList.php', false); 
+req.open('GET', 'http://localhost/Comparateur_ethique_(copie)/getKeywordsList.php', false); 
 req.send(null);
 
 if (req.status === 200) {
+	showNotification();
 
     console.log("Réponse reçue: %s", req.responseText);
-    return JSON.parse(req.responseText);
 } else {
     console.log("Status de la réponse: %d (%s)", req.status, req.statusText);
 }
@@ -15,12 +24,12 @@ if (req.status === 200) {
 
 
 
+
+
 //Lance la fonction showNotification dès qu'une page est rafraîchie.
 chrome.tabs.onUpdated.addListener(function() {
-
-					var keywords = getKeywordsList();
-					//console.log ('ma liste est ', keywords)
-					showNotification();
+	
+					getKeywordsList();
 				}); 
 
 
@@ -30,37 +39,29 @@ function showNotification()//gestion de la boite de dialogue
 	chrome.tabs.query({'active': true, 'lastFocusedWindow': true}, function (tabs) {
 		//récupère url
 		var url = tabs[0].url;
-		//console.log('mon url =', url);
 		//liste tous les numéros de tableaux qui ont pour mot clé le mot trouvé dans l'url
 		var modelesAAfficher = new Array();
-
-		var keywordsList = getKeywordsList();
-
-		console.log("ma keywordlist = ", keywordsList);
 		
-		for (var i = 0; i <= keywordsList.length-1; i++) {
+		for (var i = 0; i <= keywords.length-1; i++) {
 			
-			var recherche = url.indexOf(keywordsList[i]);
-			//console.log('mot cherché =', keywordsList[i]);
+			var recherche = url.indexOf(keywords[i]);
 			
 			if (recherche>-1) {
-				//trouve = tables[i][0];
-				modelesAAfficher.push(i);
-				var myKeyword = keywordsList[i];
 				
+				modelesAAfficher.push(i);
+				var myKeyword = keywords[i];
 
 			}else{}
 
 		}
 
 		if (modelesAAfficher.length>=1){
-		
 
 			//Ouvre notification si on trouve un modèle de notre base de donnée dans l'url
 			chrome.notifications.create('reminder', {
 				type: 'basic',
 				iconUrl:'icon.png',
-				title: 'Dress Me Fair',
+				title: 'Des marques plus éthiques',
 				message: 'DressMeFair peut vous proposer des modèles plus éthiques.'
 			});
 			//Ouvre une fenêtre quand on clique sur la notification
