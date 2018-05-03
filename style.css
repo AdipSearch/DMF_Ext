@@ -1,0 +1,47 @@
+.container-fluid{
+	
+}
+
+body{
+	font-family: 'Roboto', Sans-Serif;
+	font-style: italic;
+	color: rgba(57, 64, 88, 1);
+	background-color: rgba(240,240,240,1);
+}
+
+header{
+	margin-top: 5%;
+	display: flex;
+	justify-content: space-around;
+	align-items: center;
+}
+
+.logo{
+	width: 50%;
+}
+
+.img_product{
+	width: 100%;
+}
+
+div{
+	margin:0;
+}
+
+.product_place{
+	margin-top: 2%;
+	background-color: white;
+}
+
+.product_name{
+	border-bottom: 1px solid grey;
+	text-align: right;
+}
+
+.logo_critere{
+	width: 20%;
+}
+
+.explain_action{
+	background-color: grey;
+}
